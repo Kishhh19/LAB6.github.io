@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeStore - Shopping Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="images.png" alt="PrimeStore Logo" class="logo">
+                <div class="logo-text">
+                    <h1>PrimeStore</h1>
+                    <p class="logo-tagline">Prime</p>
+                </div>
+            </div>
+            <p class="subtitle">Explore Our Collection</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading products...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="error-message" style="display: none;">
+            <p id="error-text"></p>
+            <button onclick="location.reload()">Retry</button>
+        </div>
+
+        <!-- Products Table -->
+        <section class="table-section" id="tableSection" style="display: none;">
+            <h2>All Products</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" onkeyup="filterProducts()">
+            </div>
+            <div class="table-wrapper">
+                <table class="products-table" id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Title</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Rating</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Dynamically populated -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Details Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <div class="product-image-container">
+                    <img id="modalImage" src="" alt="Product Image" class="product-image">
+                </div>
+                
+                <div class="product-details">
+                    <h2 id="modalTitle"></h2>
+                    <p class="product-category">
+                        <strong>Category:</strong> <span id="modalCategory"></span>
+                    </p>
+                    
+                    <div class="price-rating-container">
+                        <div class="price">
+                            <strong>Price:</strong> $<span id="modalPrice"></span>
+                        </div>
+                        <div class="rating">
+                            <strong>Rating:</strong> 
+                            <span class="stars" id="modalRating"></span>
+                            <span id="modalCount"></span>
+                        </div>
+                    </div>
+                    
+                    <p class="product-description">
+                        <strong>Description:</strong>
+                    </p>
+                    <div id="modalDescription" class="description-text"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 PrimeStore | Shop with Confidence</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
